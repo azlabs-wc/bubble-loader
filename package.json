@@ -20,8 +20,7 @@
     "build": "rimraf tsconfig.tsbuildinfo && rimraf dist && tsc && npm run analyze -- --exclude dist",
     "prepublish": "tsc && npm run analyze -- --exclude dist",
     "lint": "eslint --ext .ts,.html .  --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore --end-of-line auto",
-    "format": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore",
-    "format:check": "prettier \"**/*.ts\" --check --ignore-path .gitignore --end-of-line auto",
+    "format": "prettier \"**/*.ts\" --write --ignore-path .gitignore",
     "test": "rimraf tsconfig.tsbuildinfo && rimraf dist && tsc -p tsconfig.specs.json && wtr --coverage && rimraf ./dist",
     "test:watch": "tsc -p tsconfig.specs.json && concurrently -k -r \"tsc -p tsconfig.specs.json --watch --preserveWatchOutput\" \"wtr --watch\"",
     "postbuild": "npm-prepare-dist -f README.md -f LICENSE -s test -s test:watch -s storybook -s storybook:build -s postbuild"
